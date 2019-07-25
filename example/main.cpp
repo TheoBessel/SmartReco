@@ -2,7 +2,7 @@
 #include "maths/Matrix.hpp"
 
 int main() {
-    Matrix mat({
+    SR::Maths::Matrix mat({
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {3, 2, 4, 5},
