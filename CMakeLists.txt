@@ -12,3 +12,7 @@ endif ()
 add_executable(${PROJECT_NAME} example/main.cpp includes/maths/Matrix.inl includes/maths/Matrix.hpp)
 
 target_link_libraries(${PROJECT_NAME} $<$<PLATFORM_ID:Darwin>:c++fs>)
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
