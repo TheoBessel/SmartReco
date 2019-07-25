@@ -20,18 +20,13 @@ namespace SR {
         }
 
         template < typename T >
-        std::vector< T > const& Matrix< T >::getStdVector() const {
-            return m_mat;
-        }
-
-        template < typename T >
         T const& Matrix< T >::operator()(std::size_t x, std::size_t y) const {
             assert(("Index out of range!", x < m_row));
             assert(("Index out of range!",y < m_column));
             return m_mat[x + y * m_row];
         }
         template < typename T >
-        T Matrix< T >::operator()(std::size_t x, std::size_t y) {
+        T& Matrix< T >::operator()(std::size_t x, std::size_t y) {
             assert(("Index out of range!", x < m_row));
             assert(("Index out of range!",y < m_column));
             return m_mat[x + y * m_row];
@@ -41,7 +36,7 @@ namespace SR {
         Matrix<T>& Matrix<T>::operator+=(const Matrix& mat) {
             assert(("Matrix size error!", m_mat.size() == mat.size()));
             for (std::size_t i = 0; i < m_mat.size(); ++i)
-                m_mat[i] += mat.getStdVector()[i];
+                m_mat[i] += mat.m_mat[i];
             return *this;
         }
 
@@ -49,7 +44,7 @@ namespace SR {
         Matrix<T>& Matrix<T>::operator-=(const Matrix& mat) {
             assert(("Matrix size error!", m_mat.size() == mat.size()));
             for (std::size_t i = 0; i < m_mat.size(); ++i)
-                m_mat[i] -= mat.getStdVector()[i];
+                m_mat[i] -= mat.m_mat[i];
             return *this;
         }
 
@@ -57,7 +52,7 @@ namespace SR {
         Matrix<T>& Matrix<T>::operator*=(const Matrix& mat) {
             assert(("Matrix size error!", width() == mat.height() | height() == mat.width()));
             for (std::size_t i = 0; i < m_mat.size(); ++i)
-                m_mat[i] *= mat.getStdVector()[i];
+                m_mat[i] *= mat.m_mat[i];
             return *this;
         }
 
@@ -65,7 +60,7 @@ namespace SR {
         Matrix<T>& Matrix<T>::operator/=(const Matrix& mat) {
             assert(("Matrix size error!", width() == mat.height() | height() == mat.width()));
             for (std::size_t i = 0; i < m_mat.size(); ++i)
-                m_mat[i] /= mat.getStdVector()[i];
+                m_mat[i] /= mat.m_mat[i];
             return *this;
         }
 

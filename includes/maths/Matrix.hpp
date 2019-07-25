@@ -14,7 +14,7 @@ namespace SR {
         public:
             Matrix(std::initializer_list< std::initializer_list< T > >);
             T const& operator()(std::size_t, std::size_t) const;
-            T operator()(std::size_t, std::size_t);
+            T& operator()(std::size_t, std::size_t);
             Matrix& operator+=(const Matrix& mat);
             Matrix& operator-=(const Matrix& mat);
             Matrix& operator*=(const Matrix& mat);
@@ -26,7 +26,6 @@ namespace SR {
             std::size_t size() const;
             std::size_t width() const;
             std::size_t height() const;
-            std::vector< T > const& getStdVector() const;
         private:
             std::size_t m_row;
             std::size_t m_column;
