@@ -12,11 +12,11 @@ namespace SR {
         template < typename T = uint8_t >
         class Matrix {
         public:
-            Matrix(std::initializer_list<std::initializer_list< T > >);
-            T operator()(uint8_t, uint8_t);
-            std::size_t size();
-            std::size_t width();
-            std::size_t height();
+            Matrix(std::initializer_list< std::initializer_list< T > >);
+            T const& operator()(uint8_t, uint8_t) const;
+            std::size_t size() const;
+            std::size_t width() const;
+            std::size_t height() const;
         private:
             std::size_t m_row;
             std::size_t m_column;
