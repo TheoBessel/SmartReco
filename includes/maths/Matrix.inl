@@ -50,7 +50,7 @@ namespace SR {
 
         template <typename T>
         Matrix<T>& Matrix<T>::operator*=(const Matrix& mat) {
-            assert(("Matrix size error!", width() == mat.height() | height() == mat.width()));
+            assert(("Matrix size error!", m_mat.size() == mat.size()));
             for (std::size_t i = 0; i < m_mat.size(); ++i)
                 m_mat[i] *= mat.m_mat[i];
             return *this;
@@ -58,35 +58,44 @@ namespace SR {
 
         template <typename T>
         Matrix<T>& Matrix<T>::operator/=(const Matrix& mat) {
-            assert(("Matrix size error!", width() == mat.height() | height() == mat.width()));
+            assert(("Matrix size error!", m_mat.size() == mat.size()));
             for (std::size_t i = 0; i < m_mat.size(); ++i)
                 m_mat[i] /= mat.m_mat[i];
             return *this;
         }
 
+        template <typename T>
+        Matrix<T>& Matrix<T>::operator*(const Matrix& mat) {
+            assert(("Matrix size error!", width() == mat.height() | height() == mat.width()));
+            for (std::size_t i = 0; i < width(); ++i)
+                for (std::size_t j = 0; j < height(); ++j)
+                    operator()(i, j) = mat.operator()(i, j);
+            return *this;
+        }
+
         template < typename T >
-        Matrix<T>& Matrix<T>::operator+=(const float& scalar) {
+        Matrix<T>& Matrix<T>::operator+=(float scalar) {
             for (std::size_t i = 0; i < m_mat.size(); ++i)
                 m_mat[i] += scalar;
             return *this;
         }
 
         template < typename T >
-        Matrix<T>& Matrix<T>::operator-=(const float& scalar) {
+        Matrix<T>& Matrix<T>::operator-=(float scalar) {
             for (std::size_t i = 0; i < m_mat.size(); ++i)
                 m_mat[i] -= scalar;
             return *this;
         }
 
         template <typename T>
-        Matrix<T>& Matrix<T>::operator*=(const float& scalar) {
+        Matrix<T>& Matrix<T>::operator*=(float scalar) {
             for (std::size_t i = 0; i < m_mat.size(); ++i)
                 m_mat[i] *= scalar;
             return *this;
         }
 
         template <typename T>
-        Matrix<T>& Matrix<T>::operator/=(const float& scalar) {
+        Matrix<T>& Matrix<T>::operator/=(float scalar) {
             for (std::size_t i = 0; i < m_mat.size(); ++i)
                 m_mat[i] /= scalar;
             return *this;

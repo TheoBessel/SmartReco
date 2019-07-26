@@ -35,7 +35,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    mat /= 10;
+    mat * mat2;
 
     for (std::size_t j = 0; j < mat.height(); ++j) {
         for (std::size_t i = 0; i < mat.width(); ++i) {

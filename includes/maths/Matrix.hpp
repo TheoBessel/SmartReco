@@ -19,10 +19,13 @@ namespace SR {
             Matrix& operator-=(const Matrix& mat);
             Matrix& operator*=(const Matrix& mat);
             Matrix& operator/=(const Matrix& mat);
-            Matrix& operator+=(const float & scalar);
-            Matrix& operator-=(const float & scalar);
-            Matrix& operator*=(const float & scalar);
-            Matrix& operator/=(const float & scalar);
+            Matrix& operator+=(float scalar);
+            Matrix& operator-=(float scalar);
+            Matrix& operator*=(float scalar);
+            Matrix& operator/=(float scalar);
+
+            Matrix& operator*(const Matrix& mat);
+
             std::size_t size() const;
             std::size_t width() const;
             std::size_t height() const;
