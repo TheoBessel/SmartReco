@@ -9,7 +9,7 @@ if (APPLE)
     link_directories("/usr/local/opt/llvm/lib")
 endif ()
 
-add_executable(${PROJECT_NAME} example/main.cpp includes/maths/Matrix.inl includes/maths/Matrix.hpp)
+add_executable(${PROJECT_NAME} example/main.cpp includes/graphics/Image.inl includes/graphics/Image.hpp includes/maths/Matrix.inl includes/maths/Matrix.hpp)
 
 target_link_libraries(${PROJECT_NAME} $<$<PLATFORM_ID:Darwin>:c++fs>)
 

@@ -1,42 +1,29 @@
 //
-// Created by Theo Bessel on 2019-07-24.
+// Created by Theo Bessel on 2019-07-28.
 //
 
-#ifndef INTELLIRECO_MATRIX_HPP
-#define INTELLIRECO_MATRIX_HPP
+#pragma once
 
-#include <vector>
+#ifndef SMARTRECO_MATRIX_HPP
+#define SMARTRECO_MATRIX_HPP
+
+#include <array>
 
 namespace SR {
     namespace Maths {
-        template < typename T = uint8_t >
+        template < typename T, std::size_t W, std::size_t H >
         class Matrix {
         public:
-            Matrix(std::initializer_list< std::initializer_list< T > >);
-            T const& operator()(std::size_t, std::size_t) const;
-            T& operator()(std::size_t, std::size_t);
-            Matrix& operator+=(const Matrix& mat);
-            Matrix& operator-=(const Matrix& mat);
-            Matrix& operator*=(const Matrix& mat);
-            Matrix& operator/=(const Matrix& mat);
-            Matrix& operator+=(float scalar);
-            Matrix& operator-=(float scalar);
-            Matrix& operator*=(float scalar);
-            Matrix& operator/=(float scalar);
-
-            Matrix& operator*(const Matrix& mat);
-
-            std::size_t size() const;
-            std::size_t width() const;
-            std::size_t height() const;
+            Matrix(std::initializer_list < std::initializer_list < T > >);
+            T const& operator()(std::size_t x, std::size_t y) const;
         private:
             std::size_t m_row;
             std::size_t m_column;
-            std::vector< T > m_mat;
+            std::array<T, W*H> m_mat;
         };
     }
 }
 
 #include "Matrix.inl"
 
-#endif //INTELLIRECO_MATRIX_HPP
+#endif //SMARTRECO_MATRIX_HPP
