@@ -135,7 +135,8 @@ namespace SR {
             m_column = mat.size().height;
             m_mat.resize(size());
             cv::Vec3b poolVeccolor;
-            for (int i,o = 0; i < m_row; ++i) {
+            int o = 0;
+            for (int i = 0; i < m_row; ++i) {
                 for (int j = 0; j < m_column; ++j, ++o) {
                     poolVeccolor = mat.at<cv::Vec3b>(j, i);
                     m_mat[o] = (poolVeccolor[0] + poolVeccolor[1] + poolVeccolor[2])/3;
@@ -149,7 +150,8 @@ namespace SR {
             m_column = mat.size().height;
             m_mat.resize(size());
             cv::Vec3b poolVeccolor;
-            for (int i,o = 0; i < m_row; ++i) {
+            int o = 0;
+            for (int i = 0; i < m_row; ++i) {
                 for (int j = 0; j < m_column; ++j, ++o) {
                     poolVeccolor = mat.at<cv::Vec3b>(j, i);
                     m_mat[o] = (poolVeccolor[0]);
@@ -163,7 +165,8 @@ namespace SR {
             m_column = mat.size().height;
             m_mat.resize(size());
             cv::Vec3b poolVeccolor;
-            for (int i,o = 0; i < m_row; ++i) {
+            int o = 0;
+            for (int i = 0; i < m_row; ++i) {
                 for (int j = 0; j < m_column; ++j, ++o) {
                     poolVeccolor = mat.at<cv::Vec3b>(j, i);
                     m_mat[o] = (poolVeccolor[1]);
@@ -177,7 +180,8 @@ namespace SR {
             m_column = mat.size().height;
             m_mat.resize(size());
             cv::Vec3b poolVeccolor;
-            for (int i,o = 0; i < m_row; ++i) {
+            int o = 0;
+            for (int i = 0; i < m_row; ++i) {
                 for (int j = 0; j < m_column; ++j, ++o) {
                     poolVeccolor = mat.at<cv::Vec3b>(j, i);
                     m_mat[o] = (poolVeccolor[2]);
@@ -188,7 +192,8 @@ namespace SR {
         template < typename T >
         cv::Mat_<cv::Vec3b> Image< T >::toOpenCVMat() {
             cv::Mat_<cv::Vec3b> mat(cv::Size2d(width(), height()), {255, 255, 255});
-            for (int i,o = 0; i < width(); ++i) {
+            int o = 0;
+            for (int i = 0; i < width(); ++i) {
                 for (int j = 0; j < height(); ++j,++o) {
                     mat.at<cv::Vec3b>(j, i) = cv::Vec3b(m_mat[o], m_mat[o], m_mat[o]);
                 }
