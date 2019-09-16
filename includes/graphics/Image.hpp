@@ -67,7 +67,8 @@ template < typename T >
 cv::Mat_<cv::Vec3b> bgrCvMatFrom3Images(SR::Graphics::Image< T > b, SR::Graphics::Image< T > g, SR::Graphics::Image< T > r) {
     assert(("Images must have the same size", b.size() == g.size() == r.size()));
     cv::Mat_<cv::Vec3b> mat(cv::Size2d(b.width(), b.height()), {255, 255, 255});
-    for (int i,o = 0; i < b.width(); ++i) {
+    int o = 0;
+    for (int i = 0; i < b.width(); ++i) {
         for (int j = 0; j < b.height(); ++j,++o) {
             mat.at<cv::Vec3b>(j, i) = cv::Vec3b(b(o), g(o), r(o));
         }
