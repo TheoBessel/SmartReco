@@ -10,8 +10,6 @@
 #define NDEBUG
 #include <cassert>
 #include <fstream>
-#include <libpng16/png.h>
-#include <zlib.h>
 #include "../maths/Vec3.hpp"
 
 
