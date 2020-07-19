@@ -26,7 +26,7 @@ int main() {
   out.addType("Bird");                                      // Second possibility of output
   out.addType("Other");                                     // Third possibility of output
   
-  SR::Data::ProbablityArray<> probability;                  // Output probability array
+  SR::Data::ProbablityArray probability;                  // Output probability array
   
   dataset.importFrom<Url>("https://cifar.fr/cifar.sql");    // Input origin
   
